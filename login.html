@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+      <form action="php/home.php" class="login-form" method="POST" onSubmit="return verification()" name="authen">
+        <h1>Login</h1>
+
+        <div class="txtb">
+          <input placeholder="usermail" type="text" name="email">
+        </div>
+
+        <div class="txtb">
+          <input placeholder="password" type="password" name="password">
+        </div>
+
+        <input type="submit" class="logbtn" value="Login" name="Login" >
+
+        <div class="bottom-text">
+          Don't have account? <a href="php/addadmin.php" style="color: rgb(49, 4, 250)">Sign up</a>
+        </div>
+
+      </form>
+
+      <script type="text/javascript">
+      $(".txtb input").on("focus",function(){
+        $(this).addClass("focus");
+      });
+
+      $(".txtb input").on("blur",function(){
+        if($(this).val() == "")
+        $(this).removeClass("focus");
+      });
+      
+ function verification(){
+	 
+	 if(document.forms["authen"].elements["email"].value==""){
+		 alert("user mail fieldset is empty. Please fill it!");
+		 return false;
+	 }else{
+	  if(document.forms["authen"].elements["password"].value==""){
+		 alert("password fieldset is empty. Please fill it!");
+		 return false;
+	 }else{
+		 return true;
+	 }}
+	 
+ }
+ 
+ 
+      </script>
+
+
+  </body>
+</html>
